@@ -1,13 +1,21 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Crush Checker ❤️</title>
 
+
     <style>
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -15,322 +23,934 @@
             font-family: Arial, Helvetica, sans-serif;
         }
 
+
         body {
+
             min-height: 100vh;
+
             display: flex;
+
             justify-content: center;
+
             align-items: center;
+
             overflow: hidden;
-            background: linear-gradient(135deg, #ff416c, #ff4b2b);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff416c,
+                    #ff4b2b
+                );
+
             position: relative;
+
         }
+
 
         /* Floating hearts */
+
         .heart {
+
             position: absolute;
-            color: rgba(255, 255, 255, 0.25);
+
+            color: rgba(
+                255,
+                255,
+                255,
+                0.25
+            );
+
             font-size: 25px;
-            animation: float 8s linear infinite;
+
+            animation:
+                float 8s linear infinite;
+
         }
+
 
         .heart:nth-child(1) {
+
             left: 10%;
             animation-delay: 0s;
+
         }
+
 
         .heart:nth-child(2) {
+
             left: 25%;
             animation-delay: 2s;
+
         }
+
 
         .heart:nth-child(3) {
+
             left: 50%;
             animation-delay: 4s;
+
         }
+
 
         .heart:nth-child(4) {
+
             left: 75%;
             animation-delay: 1s;
+
         }
+
 
         .heart:nth-child(5) {
+
             left: 90%;
             animation-delay: 3s;
+
         }
 
+
         @keyframes float {
+
             0% {
+
                 bottom: -50px;
-                transform: rotate(0deg);
+
+                transform:
+                    rotate(0deg)
+                    scale(1);
+
             }
 
             100% {
+
                 bottom: 110%;
-                transform: rotate(360deg);
+
+                transform:
+                    rotate(360deg)
+                    scale(1.5);
+
             }
+
         }
+
+
+        /* Main card */
 
         .container {
+
             width: 90%;
+
             max-width: 430px;
+
             padding: 35px 28px;
-            background: rgba(255, 255, 255, 0.96);
+
+            background:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.97
+                );
+
             border-radius: 25px;
+
             text-align: center;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+
+            box-shadow:
+                0 20px 50px
+                rgba(
+                    0,
+                    0,
+                    0,
+                    0.25
+                );
+
             position: relative;
+
             z-index: 2;
+
         }
+
+
+        /* Heart logo */
 
         .logo {
+
             font-size: 55px;
+
             margin-bottom: 10px;
-            animation: heartbeat 1.5s infinite;
+
+            animation:
+                heartbeat 1.5s infinite;
+
         }
 
+
         @keyframes heartbeat {
-            0%, 100% {
-                transform: scale(1);
+
+            0%,
+            100% {
+
+                transform:
+                    scale(1);
+
             }
 
             50% {
-                transform: scale(1.15);
+
+                transform:
+                    scale(1.15);
+
             }
+
         }
+
 
         h1 {
+
             color: #ff416c;
+
             font-size: 32px;
+
             margin-bottom: 8px;
+
         }
+
 
         .subtitle {
+
             color: #777;
+
             margin-bottom: 28px;
+
             font-size: 14px;
+
         }
+
+
+        /* Inputs */
 
         .input-group {
+
             text-align: left;
+
             margin-bottom: 18px;
+
         }
+
 
         label {
+
             display: block;
+
             margin-bottom: 7px;
+
             font-weight: bold;
+
             color: #444;
+
         }
+
 
         input {
+
             width: 100%;
+
             padding: 14px 16px;
-            border: 2px solid #eee;
+
+            border:
+                2px solid #eee;
+
             border-radius: 12px;
+
             outline: none;
+
             font-size: 16px;
+
             transition: 0.3s;
+
         }
+
 
         input:focus {
-            border-color: #ff416c;
-            box-shadow: 0 0 0 3px rgba(255, 65, 108, 0.1);
+
+            border-color:
+                #ff416c;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(
+                    255,
+                    65,
+                    108,
+                    0.1
+                );
+
         }
+
+
+        /* Buttons */
 
         button {
+
             width: 100%;
+
             padding: 15px;
+
             margin-top: 8px;
+
             border: none;
+
             border-radius: 12px;
-            background: linear-gradient(135deg, #ff416c, #ff4b2b);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff416c,
+                    #ff4b2b
+                );
+
             color: white;
+
             font-size: 17px;
+
             font-weight: bold;
+
             cursor: pointer;
+
             transition: 0.25s;
+
         }
+
 
         button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(255, 65, 108, 0.35);
+
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                0 8px 20px
+                rgba(
+                    255,
+                    65,
+                    108,
+                    0.35
+                );
+
         }
+
 
         button:active {
-            transform: scale(0.97);
+
+            transform:
+                scale(0.97);
+
         }
+
+
+        button:disabled {
+
+            opacity: 0.7;
+
+            cursor:
+                not-allowed;
+
+        }
+
+
+        /* Sending message */
+
+        .sending {
+
+            display: none;
+
+            margin-top: 25px;
+
+        }
+
+
+        .sending-heart {
+
+            font-size: 45px;
+
+            animation:
+                heartbeat 0.8s infinite;
+
+        }
+
+
+        .sending h2 {
+
+            color: #ff416c;
+
+            margin-top: 10px;
+
+            font-size: 22px;
+
+        }
+
+
+        .sending p {
+
+            color: #777;
+
+            font-size: 14px;
+
+            margin-top: 8px;
+
+        }
+
+
+        /* Result */
 
         .result {
+
             display: none;
+
             margin-top: 25px;
+
             padding: 20px;
+
             border-radius: 18px;
-            background: #fff0f4;
+
+            background:
+                #fff0f4;
+
+            animation:
+                resultAppear 0.5s ease;
+
         }
+
+
+        @keyframes resultAppear {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    scale(0.8);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    scale(1);
+
+            }
+
+        }
+
+
+        .result-title {
+
+            color: #555;
+
+            font-size: 15px;
+
+        }
+
 
         .percentage {
-            font-size: 45px;
+
+            font-size: 48px;
+
             font-weight: bold;
+
             color: #ff416c;
+
             margin: 10px 0;
+
         }
+
 
         .message {
+
             color: #555;
+
             font-size: 15px;
+
             line-height: 1.5;
+
         }
 
-        .whatsapp-note {
-            font-size: 11px;
-            color: #999;
-            margin-top: 18px;
-        }
 
         .again {
+
             background: #444;
+
             margin-top: 15px;
+
             display: none;
+
         }
+
+
+        .privacy {
+
+            font-size: 10px;
+
+            color: #aaa;
+
+            margin-top: 18px;
+
+            line-height: 1.4;
+
+        }
+
+
     </style>
+
 </head>
+
 
 <body>
 
+
     <!-- Floating hearts -->
+
     <div class="heart">❤️</div>
+
     <div class="heart">💕</div>
+
     <div class="heart">💗</div>
+
     <div class="heart">💖</div>
+
     <div class="heart">❤️</div>
+
+
 
     <div class="container">
 
-        <div class="logo">❤️</div>
 
-        <h1>Crush Checker</h1>
+        <!-- Main screen -->
 
-        <p class="subtitle">
-            Let's see what the names say... 👀
-        </p>
+        <div id="mainScreen">
 
-        <div class="input-group">
-            <label for="yourName">Your Name</label>
-            <input
-                type="text"
-                id="yourName"
-                placeholder="Enter your name"
-                autocomplete="off"
+
+            <div class="logo">
+
+                ❤️
+
+            </div>
+
+
+            <h1>
+
+                Crush Checker
+
+            </h1>
+
+
+            <p class="subtitle">
+
+                Let's see what the names say... 👀
+
+            </p>
+
+
+
+            <div class="input-group">
+
+                <label for="yourName">
+
+                    Your Name
+
+                </label>
+
+                <input
+                    type="text"
+                    id="yourName"
+                    placeholder="Enter your name"
+                    autocomplete="off"
+                >
+
+            </div>
+
+
+
+            <div class="input-group">
+
+                <label for="crushName">
+
+                    Your Crush's Name
+
+                </label>
+
+                <input
+                    type="text"
+                    id="crushName"
+                    placeholder="Enter your crush's name"
+                    autocomplete="off"
+                >
+
+            </div>
+
+
+
+            <button
+                id="checkButton"
+                onclick="checkCrush()"
             >
+
+                CHECK ❤️
+
+            </button>
+
+
+            <p class="privacy">
+
+                By pressing CHECK, the names entered here
+                will be submitted to Mubeen for this
+                fun crush checker.
+
+            </p>
+
+
         </div>
 
-        <div class="input-group">
-            <label for="crushName">Your Crush's Name</label>
-            <input
-                type="text"
-                id="crushName"
-                placeholder="Enter your crush's name"
-                autocomplete="off"
-            >
+
+
+        <!-- Sending screen -->
+
+        <div
+            class="sending"
+            id="sending"
+        >
+
+            <div class="sending-heart">
+
+                💌
+
+            </div>
+
+
+            <h2>
+
+                Sending to Mubeen...
+
+            </h2>
+
+
+            <p>
+
+                Your crush information is being checked 👀
+
+            </p>
+
         </div>
 
-        <button onclick="checkCrush()">
-            CHECK ❤️
-        </button>
 
-        <div class="result" id="result">
 
-            <div>💕 Compatibility</div>
+        <!-- Result -->
 
-            <div class="percentage" id="percentage">
+        <div
+            class="result"
+            id="result"
+        >
+
+            <div class="result-title">
+
+                💕 Your Crush Compatibility
+
+            </div>
+
+
+            <div
+                class="percentage"
+                id="percentage"
+            >
+
                 0%
+
             </div>
 
-            <div class="message" id="message">
-                Something interesting is happening...
+
+            <div
+                class="message"
+                id="message"
+            >
+
             </div>
+
 
         </div>
+
+
 
         <button
             class="again"
             id="againButton"
             onclick="resetGame()"
         >
+
             CHECK AGAIN
+
         </button>
 
-        <p class="whatsapp-note">
-            By pressing CHECK, your names will be prepared in WhatsApp
-            to send to the website owner.
-        </p>
 
     </div>
 
 
+
     <script>
 
-        function checkCrush() {
+
+        /*
+         * ==================================================
+         * PUT YOUR GOOGLE APPS SCRIPT URL HERE
+         * ==================================================
+         */
+
+        const SCRIPT_URL =
+            "https://script.google.com/macros/s/AKfycbyX6Cdh7EIeW79y5MSQnty4PT3Pbtx11oWaX8U3yogqBlRTauRq0R_gp5UG4dz8akw_/exec";
+
+
+
+        async function checkCrush() {
+
 
             const yourName =
-                document.getElementById("yourName").value.trim();
+                document
+                    .getElementById("yourName")
+                    .value
+                    .trim();
+
 
             const crushName =
-                document.getElementById("crushName").value.trim();
+                document
+                    .getElementById("crushName")
+                    .value
+                    .trim();
 
-            if (yourName === "" || crushName === "") {
 
-                alert("Please enter both names ❤️");
+
+            /* Check empty fields */
+
+            if (
+                yourName === "" ||
+                crushName === ""
+            ) {
+
+                alert(
+                    "Please enter both names ❤️"
+                );
 
                 return;
+
             }
+
+
+
+            /* Get elements */
+
+            const button =
+                document
+                    .getElementById(
+                        "checkButton"
+                    );
+
+
+            const mainScreen =
+                document
+                    .getElementById(
+                        "mainScreen"
+                    );
+
+
+            const sending =
+                document
+                    .getElementById(
+                        "sending"
+                    );
+
+
+            const result =
+                document
+                    .getElementById(
+                        "result"
+                    );
+
+
+            const againButton =
+                document
+                    .getElementById(
+                        "againButton"
+                    );
+
+
+
+            /* Disable button */
+
+            button.disabled = true;
+
+            button.innerText =
+                "CHECKING... ❤️";
+
 
 
             /*
-             * Generate a repeatable percentage
-             * from the two names.
+             * Show sending animation
              */
 
-            const combined =
-                (yourName + crushName).toLowerCase();
+            mainScreen.style.display =
+                "none";
 
-            let number = 0;
+            sending.style.display =
+                "block";
 
-            for (let i = 0; i < combined.length; i++) {
 
-                number =
-                    (number * 31 + combined.charCodeAt(i)) % 101;
+
+            /*
+             * Send names to Google Sheet
+             */
+
+            try {
+
+                await fetch(
+                    SCRIPT_URL,
+                    {
+
+                        method: "POST",
+
+                        mode: "no-cors",
+
+                        headers: {
+
+                            "Content-Type":
+                                "text/plain"
+
+                        },
+
+                        body:
+                            JSON.stringify({
+
+                                yourName:
+                                    yourName,
+
+                                crushName:
+                                    crushName
+
+                            })
+
+                    }
+                );
+
 
             }
 
-            // Keep result between 50 and 99
+            catch (error) {
+
+                console.log(
+                    "Submission error:",
+                    error
+                );
+
+            }
+
+
+
+            /*
+             * Wait a little
+             * to make the animation
+             * feel natural.
+             */
+
+            await new Promise(
+                resolve =>
+                    setTimeout(
+                        resolve,
+                        1800
+                    )
+            );
+
+
+
+            /*
+             * Calculate fun percentage
+             */
+
+            const combined =
+                (
+                    yourName +
+                    crushName
+                ).toLowerCase();
+
+
+
+            let number = 0;
+
+
+            for (
+                let i = 0;
+                i < combined.length;
+                i++
+            ) {
+
+                number =
+                    (
+                        number * 31 +
+                        combined.charCodeAt(i)
+                    ) % 101;
+
+            }
+
+
+
+            /*
+             * Percentage between 50 and 99
+             */
+
             const percentage =
                 50 + (number % 50);
 
 
+
             let messageText;
 
-            if (percentage >= 90) {
+
+
+            if (
+                percentage >= 90
+            ) {
 
                 messageText =
-                    "🔥 Whoa! The names are looking seriously compatible! ❤️";
+                    "🔥 Whoa! Something special might be happening! ❤️";
 
-            } else if (percentage >= 80) {
+            }
+
+            else if (
+                percentage >= 80
+            ) {
 
                 messageText =
-                    "💕 That's a strong connection! Something might be happening!";
+                    "💕 That's a seriously strong connection!";
 
-            } else if (percentage >= 70) {
+            }
+
+            else if (
+                percentage >= 70
+            ) {
 
                 messageText =
                     "😍 Pretty good chemistry! Maybe there's a chance!";
 
-            } else if (percentage >= 60) {
+            }
+
+            else if (
+                percentage >= 60
+            ) {
 
                 messageText =
                     "😊 Not bad! Keep talking and see what happens!";
 
-            } else {
+            }
+
+            else {
 
                 messageText =
                     "👀 Hmm... the future is mysterious!";
@@ -338,69 +958,133 @@
             }
 
 
-            document.getElementById("percentage").innerText =
-                percentage + "%";
 
-            document.getElementById("message").innerText =
-                messageText;
+            /*
+             * Hide sending screen
+             */
 
-            document.getElementById("result").style.display =
-                "block";
+            sending.style.display =
+                "none";
 
-            document.getElementById("againButton").style.display =
-                "block";
 
 
             /*
-             * WhatsApp message
+             * Show result
              */
 
-            const whatsappMessage =
-`💕 NEW CRUSH CHECK
-
-👤 Name: ${yourName}
-❤️ Crush: ${crushName}
-
-💯 Compatibility: ${percentage}%`;
+            result.style.display =
+                "block";
 
 
-            const phoneNumber =
-                "919495523643";
+            document
+                .getElementById(
+                    "percentage"
+                )
+                .innerText =
+                    percentage + "%";
 
-            const whatsappURL =
-                "https://wa.me/" +
-                phoneNumber +
-                "?text=" +
-                encodeURIComponent(whatsappMessage);
+
+            document
+                .getElementById(
+                    "message"
+                )
+                .innerText =
+                    messageText;
+
 
 
             /*
-             * Open WhatsApp
+             * Show reset button
              */
 
-            window.open(whatsappURL, "_blank");
+            againButton.style.display =
+                "block";
+
 
         }
+
 
 
         function resetGame() {
 
-            document.getElementById("yourName").value = "";
 
-            document.getElementById("crushName").value = "";
+            /*
+             * Clear fields
+             */
 
-            document.getElementById("result").style.display =
+            document
+                .getElementById(
+                    "yourName"
+                )
+                .value = "";
+
+
+            document
+                .getElementById(
+                    "crushName"
+                )
+                .value = "";
+
+
+
+            /*
+             * Hide result
+             */
+
+            document
+                .getElementById(
+                    "result"
+                )
+                .style.display =
                 "none";
 
-            document.getElementById("againButton").style.display =
+
+            document
+                .getElementById(
+                    "againButton"
+                )
+                .style.display =
                 "none";
+
+
+
+            /*
+             * Show main screen
+             */
+
+            document
+                .getElementById(
+                    "mainScreen"
+                )
+                .style.display =
+                "block";
+
+
+
+            /*
+             * Reset button
+
+             */
+
+            const button =
+                document
+                    .getElementById(
+                        "checkButton"
+                    );
+
+
+            button.disabled = false;
+
+            button.innerText =
+                "CHECK ❤️";
 
         }
 
+
     </script>
 
+
 </body>
+
 </html>
-
-
 
